@@ -97,7 +97,7 @@ services:
       - ZEEBE_CLIENT_SECURITY_PLAINTEXT=true
       - CAMUNDA_OPERATE_CLIENT_KEYCLOAK-URL=http://keycloak:8080
       - CAMUNDA_OPERATE_CLIENT_CLIENT-ID=connectors
-      - CAMUNDA_OPERATE_CLIENT_CLIENT-SECRET=c0nn3ct0rsAr3Aw3s0me
+      - CAMUNDA_OPERATE_CLIENT_CLIENT-SECRET=XALaRPl5qwTEItdwCMiPS62nVpKs7dL7
       - CAMUNDA_OPERATE_CLIENT_KEYCLOAK-REALM=camunda-platform
       - CAMUNDA_OPERATE_CLIENT_URL=http://operate:8080
     env_file: connector-secrets.txt
@@ -153,6 +153,8 @@ services:
       KEYCLOAK_INIT_TASKLIST_ROOT_URL: http://localhost:8082
       KEYCLOAK_INIT_OPTIMIZE_SECRET: XALaRPl5qwTEItdwCMiPS62nVpKs7dL7
       KEYCLOAK_INIT_OPTIMIZE_ROOT_URL: http://localhost:8083
+      KEYCLOAK_INIT_CONNECTORS_SECRET: XALaRPl5qwTEItdwCMiPS62nVpKs7dL7
+      KEYCLOAK_INIT_CONNECTORS_ROOT_URL: http://localhost:8085
       KEYCLOAK_INIT_WEBMODELER_ROOT_URL: http://localhost:8070   
       KEYCLOAK_USERS_0_USERNAME: "demo"
       KEYCLOAK_USERS_0_PASSWORD: "demo"
@@ -163,13 +165,7 @@ services:
       KEYCLOAK_USERS_0_ROLES_2: "Operate"
       KEYCLOAK_USERS_0_ROLES_3: "Tasklist"
       KEYCLOAK_USERS_0_ROLES_4: "Web Modeler"
-      KEYCLOAK_CLIENTS_0_NAME: Connectors
-      KEYCLOAK_CLIENTS_0_ID: connectors
-      KEYCLOAK_CLIENTS_0_SECRET: c0nn3ct0rsAr3Aw3s0me
-      KEYCLOAK_CLIENTS_0_ROOT_URL: https://localhost:8080
-      KEYCLOAK_CLIENTS_0_REDIRECT_URIS_0: /
-      KEYCLOAK_CLIENTS_0_PERMISSIONS_0_RESOURCE_SERVER_ID: operate-api
-      KEYCLOAK_CLIENTS_0_PERMISSIONS_0_DEFINITION: read:*
+      KEYCLOAK_USERS_0_ROLES_5: "Connectors"
     healthcheck:
       test: [ "CMD", "wget", "-q", "--tries=1", "--spider", "http://localhost:8082/actuator/health" ]
       interval: 5s
