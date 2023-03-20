@@ -1,0 +1,6 @@
+es:
+  settings:
+    index:
+      number_of_replicas: 0
+      prefix: my-custom-prefix-optimize
+
